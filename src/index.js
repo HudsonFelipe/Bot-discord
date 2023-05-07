@@ -16,9 +16,11 @@ const client = new Client({
 });
 
 fs.readdir("./Events", (err, file) => {
-  file.forEach((event) => {
+  file.forEach((fileName) => {
     // eslint-disable-next-line import/no-dynamic-require, global-require
-    require(`./Events/${event}`);
+    const { default: event } = require(`./Events/${fileName}`);
+
+    event(client);
   });
 });
 
