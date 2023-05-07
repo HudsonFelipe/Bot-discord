@@ -1,7 +1,7 @@
 {
   "name": "Bot-discord",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/index.js",
   "author": "Hudson Felipe",
   "license": "MIT",
   "scripts": {
