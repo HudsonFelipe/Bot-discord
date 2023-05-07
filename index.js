@@ -1,6 +1,6 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits } = require("discord.js");
 
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 
 dotenv.config();
 
@@ -13,23 +13,23 @@ const client = new Client({
     GatewayIntentBits.DirectMessages,
     // para poder pegar a mensagem informada pelo usuario precisa desta linha
     // também é preciso autorizar na tela de criação do bot
-    GatewayIntentBits.MessageContent
-  ]
+    GatewayIntentBits.MessageContent,
+  ],
 });
 
-module.exports = client
+module.exports = client;
 
-const fs = require('fs');
+const fs = require("fs");
 
-fs.readdir('./Events', (err, file) => {
-  file.forEach(event => {
+fs.readdir("./Events", (err, file) => {
+  file.forEach((event) => {
     // eslint-disable-next-line import/no-dynamic-require, global-require
-    require(`./Events/${event}`)
-  })
-})
+    require(`./Events/${event}`);
+  });
+});
 
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`)
-})
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 
-client.login(TOKEN)
+client.login(TOKEN);
