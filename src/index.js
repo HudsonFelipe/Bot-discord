@@ -1,8 +1,6 @@
-const { Client, GatewayIntentBits } = require("discord.js");
-
-const dotenv = require("dotenv");
-
-dotenv.config();
+import "dotenv/config";
+import { Client, GatewayIntentBits } from "discord.js";
+import fs from "fs";
 
 const { TOKEN } = process.env;
 
@@ -17,10 +15,6 @@ const client = new Client({
   ],
 });
 
-module.exports = client;
-
-const fs = require("fs");
-
 fs.readdir("./Events", (err, file) => {
   file.forEach((event) => {
     // eslint-disable-next-line import/no-dynamic-require, global-require
@@ -33,3 +27,5 @@ client.on("ready", () => {
 });
 
 client.login(TOKEN);
+
+export default client;
