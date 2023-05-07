@@ -5,6 +5,7 @@
   "author": "Hudson Felipe",
   "license": "MIT",
   "scripts": {
+    "prebuild": "rm -rf build",
     "build": "babel src --out-dir build",
     "lint": "eslint .",
     "format": "prettier --check '**/*.js' --write .",
