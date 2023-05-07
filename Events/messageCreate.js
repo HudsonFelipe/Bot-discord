@@ -1,13 +1,14 @@
 require('../index')
 const client = require('../index')
-const { Role } = require('discord.js')
 
 client.on("messageCreate", (interaction) => {
     try{
-        //estamos verificando se é um link
-        let url = new URL(interaction.content)
-        //verificamos se o usuario é do cargo que permiti mandar link no servidor
-        if(interaction.member._roles.includes('1103837213755715654')){
+        // estamos verificando se é um link
+        const url = new URL(interaction.content)
+
+        // verificamos se o usuario é do cargo que permiti mandar link no servidor
+        // eslint-disable-next-line no-underscore-dangle
+        if(url && interaction.member._roles.includes('1103837213755715654')){
             console.log('ola')
         }else{
             interaction.delete()
