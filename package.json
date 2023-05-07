@@ -1,12 +1,35 @@
 {
-  "name": "Bot-discord-",
+  "name": "Bot-discord",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/index.js",
   "author": "Hudson Felipe",
   "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir build",
+    "lint": "eslint .",
+    "format": "prettier --check '**/*.js' --write .",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "discord.js": "^14.10.2",
-    "dotenv": "^16.0.3",
-    "fs": "^0.0.1-security"
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.25.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8"
   }
 }
