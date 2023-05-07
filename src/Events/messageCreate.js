@@ -1,5 +1,4 @@
-require("../index");
-const client = require("../index");
+import client from "../index";
 
 client.on("messageCreate", (interaction) => {
   try {
