@@ -1,0 +1,12 @@
+{
+  "name": "Bot-discord-",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Hudson Felipe",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.10.2",
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security"
+  }
+}
