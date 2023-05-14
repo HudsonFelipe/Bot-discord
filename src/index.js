@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { Client, GatewayIntentBits } from "discord.js";
 import fs from "fs";
+import path from "path";
 
 const { TOKEN } = process.env;
 
@@ -15,10 +16,18 @@ const client = new Client({
   ],
 });
 
-fs.readdir("./Events", (err, file) => {
+const eventsDirectory = path.join(__dirname, "Events");
+
+fs.readdir(eventsDirectory, (err, file) => {
+  if (err) {
+    console.error("Erro ao ler o diretório:", err);
+    return;
+  }
+
   file.forEach((fileName) => {
+    const eventPath = path.join(eventsDirectory, fileName);
     // eslint-disable-next-line import/no-dynamic-require, global-require
-    const { default: event } = require(`./Events/${fileName}`);
+    const { default: event } = require(`${eventPath}`);
 
     event(client);
   });
