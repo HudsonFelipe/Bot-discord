@@ -33,10 +33,6 @@ fs.readdir(eventsDirectory, (err, file) => {
   });
 });
 
-client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
 client.login(TOKEN);
 
 export default client;
